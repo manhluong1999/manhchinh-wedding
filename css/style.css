@@ -9242,6 +9242,7 @@ button.bg-dark:focus {
 
 .text-uppercase {
   text-transform: uppercase !important;
+  
 }
 
 .text-capitalize {
@@ -9804,4 +9805,50 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.qr-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+  transition: transform 0.3s;
+}
+
+.qr-card:hover {
+  transform: translateY(-10px);
+}
+
+.qr-card img {
+  width: 300px;
+  height: 300px;
+  border-radius: 10px;
+  border: 2px solid #333;
+}
+
+.qr-title {
+  font-size: 1.5em;
+  color: #333;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#qrModal {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200vh;
+  margin: 0;
+}
+
+#qrModal1 {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200vh;
+  margin: 0;
 }

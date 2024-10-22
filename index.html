@@ -1,526 +1,810 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Tien Manh & Thu Chinh -Wedding Website</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Free HTML Templates" name="keywords" />
+    <meta content="Free HTML Templates" name="description" />
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="51">
+  <body data-spy="scroll" data-target=".navbar" data-offset="51">
     <script>
-        // Thiết lập ngày đích cần đếm ngược
-        var countDownDate = new Date("Nov 02, 2024 08:00:00").getTime();
+      // Thiết lập ngày đích cần đếm ngược
+      var countDownDate = new Date("Nov 02, 2024 08:00:00").getTime();
 
-        // Cập nhật thời gian đếm ngược mỗi giây
-        var countdownFunction = setInterval(function() {
+      // Cập nhật thời gian đếm ngược mỗi giây
+      var countdownFunction = setInterval(function () {
+        // Lấy ngày giờ hiện tại
+        var now = new Date().getTime();
 
-            // Lấy ngày giờ hiện tại
-            var now = new Date().getTime();
+        // Tính khoảng cách giữa bây giờ và ngày đích
+        var distance = countDownDate - now;
 
-            // Tính khoảng cách giữa bây giờ và ngày đích
-            var distance = countDownDate - now;
+        // Tính toán thời gian cho ngày, giờ, phút và giây
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Tính toán thời gian cho ngày, giờ, phút và giây
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // Hiển thị kết quả trong thẻ <div> với id="countdown"
+        // document.getElementById("countdown").innerHTML = days + " ngày " + hours + " giờ "
+        // + minutes + " phút " + seconds + " giây ";
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
 
-            // Hiển thị kết quả trong thẻ <div> với id="countdown"
-            // document.getElementById("countdown").innerHTML = days + " ngày " + hours + " giờ " 
-            // + minutes + " phút " + seconds + " giây ";
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-
-            // Nếu đếm ngược xong, dừng lại và hiển thị thông báo
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.getElementById("countdown").innerHTML = "Đã đến ngày!";
-            }
-        }, 1000);
+        // Nếu đếm ngược xong, dừng lại và hiển thị thông báo
+        if (distance < 0) {
+          clearInterval(countdownFunction);
+          document.getElementById("countdown").innerHTML = "Đã đến ngày!";
+        }
+      }, 1000);
+    </script>
+    <script>
+      // Đóng modal khi nhấn ra ngoài modal
+      window.onclick = function (event) {
+        var modal = document.getElementById("qrModal");
+        var modal1 = document.getElementById("qrModal-1");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        if (event.target == modal1) {
+            modal1.style.display = "none";
+        }
+      };
     </script>
 
     <!-- Navbar Start -->
-    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand d-block d-lg-none">
-            <h1 class="font-secondary text-white mb-n2">Tien Manh <span class="text-primary">&</span> Thu Chinh</h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <div class="navbar-nav ml-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Home</a>
-                <a href="#about" class="nav-item nav-link">About</a>
-                <a href="#story" class="nav-item nav-link">Story</a>
-            </div>
-            <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
-                <h1 class="font-secondary text-white mb-n2">Tien Manh <span class="text-primary">&</span> Thu Chinh</h1>
-            </a>
-            <div class="navbar-nav mr-auto py-0">
-                <a href="#gallery" class="nav-item nav-link">Gallery</a>
-                <a href="#event" class="nav-item nav-link">Event</a>
-            </div>
+    <nav
+      class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5"
+    >
+      <a href="index.html" class="navbar-brand d-block d-lg-none">
+        <h1 class="font-secondary text-white mb-n2">
+          Tien Manh <span class="text-primary">&</span> Thu Chinh
+        </h1>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-between"
+        id="navbarCollapse"
+      >
+        <div class="navbar-nav ml-auto py-0">
+          <a href="#home" class="nav-item nav-link active">Home</a>
+          <a href="#about" class="nav-item nav-link">About</a>
+          <a href="#story" class="nav-item nav-link">Story</a>
         </div>
+        <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+          <h1 class="font-secondary text-white mb-n2">
+            Tien Manh <span class="text-primary">&</span> Thu Chinh
+          </h1>
+        </a>
+        <div class="navbar-nav mr-auto py-0">
+          <a href="#gallery" class="nav-item nav-link">Gallery</a>
+          <a href="#event" class="nav-item nav-link">Event</a>
+        </div>
+      </div>
     </nav>
     <!-- Navbar End -->
 
-
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 pb-5" id="home">
-        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item position-relative active" style="height: 200vh; min-height: 600px;">
-                    <img class="position-absolute w-100 h-100" src="fix/DSC04446.jpg" style="object-fit: cover;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Tien Manh & Thu Chinh</h1>
-                            <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting married</h3>
-                            </div>
-                            <button type="button" class="btn-play mx-auto" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/Y2n6olzN5iM" data-target="#videoModal">
-                                <span></span>
-                            </button>
-                        </div>
-                    </div>
+      <div
+        id="header-carousel"
+        class="carousel slide carousel-fade"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div
+            class="carousel-item position-relative active"
+            style="height: 200vh; min-height: 600px"
+          >
+            <img
+              class="position-absolute w-100 h-100"
+              src="fix/DSC04446.jpg"
+              style="object-fit: cover"
+            />
+            <div
+              class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+            >
+              <div class="p-3" style="max-width: 900px">
+                <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">
+                  Tien Manh & Thu Chinh
+                </h1>
+                <div
+                  class="d-inline-block border-top border-bottom border-light py-3 px-4"
+                >
+                  <h3
+                    class="text-uppercase font-weight-normal text-white m-0"
+                    style="letter-spacing: 2px"
+                  >
+                    We're getting married
+                  </h3>
                 </div>
-                <div class="carousel-item position-relative" style="height: 250vh; min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="fix/DSC03909.jpg" style="object-fit: cover;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">Tien Manh & Thu Chinh</h1>
-                            <div class="d-inline-block border-top border-bottom border-light py-3 px-4">
-                                <h3 class="text-uppercase font-weight-normal text-white m-0" style="letter-spacing: 2px;">We're getting married</h3>
-                            </div>
-                            <button type="button" class="btn-play mx-auto" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/Y2n6olzN5iM" data-target="#videoModal">
-                                <span></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                <button
+                  type="button"
+                  class="btn-play mx-auto"
+                  data-toggle="modal"
+                  data-src="https://www.youtube.com/embed/Y2n6olzN5iM"
+                  data-target="#videoModal"
+                >
+                  <span></span>
+                </button>
+              </div>
             </div>
-            <a class="carousel-control-prev justify-content-start" href="#header-carousel" data-slide="prev">
-                <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-                    <span class="carousel-control-prev-icon mt-3"></span>
+          </div>
+          <div
+            class="carousel-item position-relative"
+            style="height: 250vh; min-height: 400px"
+          >
+            <img
+              class="position-absolute w-100 h-100"
+              src="fix/DSC03909.jpg"
+              style="object-fit: cover"
+            />
+            <div
+              class="carousel-caption d-flex flex-column align-items-center justify-content-center"
+            >
+              <div class="p-3" style="max-width: 900px">
+                <h1 class="display-1 font-secondary text-white mt-n3 mb-md-4">
+                  Tien Manh & Thu Chinh
+                </h1>
+                <div
+                  class="d-inline-block border-top border-bottom border-light py-3 px-4"
+                >
+                  <h3
+                    class="text-uppercase font-weight-normal text-white m-0"
+                    style="letter-spacing: 2px"
+                  >
+                    We're getting married
+                  </h3>
                 </div>
-            </a>
-            <a class="carousel-control-next justify-content-end" href="#header-carousel" data-slide="next">
-                <div class="btn btn-primary px-0" style="width: 68px; height: 68px;">
-                    <span class="carousel-control-next-icon mt-3"></span>
-                </div>
-            </a>
+                <button
+                  type="button"
+                  class="btn-play mx-auto"
+                  data-toggle="modal"
+                  data-src="https://www.youtube.com/embed/Y2n6olzN5iM"
+                  data-target="#videoModal"
+                >
+                  <span></span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <a
+          class="carousel-control-prev justify-content-start"
+          href="#header-carousel"
+          data-slide="prev"
+        >
+          <div class="btn btn-primary px-0" style="width: 68px; height: 68px">
+            <span class="carousel-control-prev-icon mt-3"></span>
+          </div>
+        </a>
+        <a
+          class="carousel-control-next justify-content-end"
+          href="#header-carousel"
+          data-slide="next"
+        >
+          <div class="btn btn-primary px-0" style="width: 68px; height: 68px">
+            <span class="carousel-control-next-icon mt-3"></span>
+          </div>
+        </a>
+      </div>
     </div>
     <!-- Carousel End -->
 
-
     <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>        
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                    </div>
-                </div>
+    <div
+      class="modal fade"
+      id="videoModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <!-- 16:9 aspect ratio -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe
+                class="embed-responsive-item"
+                src=""
+                id="video"
+                allowscriptaccess="always"
+                allow="autoplay"
+              ></iframe>
             </div>
+          </div>
         </div>
+      </div>
     </div>
     <!-- Video Modal End -->
-
-
-    <!-- About Start -->
-    <div class="container-fluid py-5" id="about">
-        <div class="container py-5">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">About</h6>
-                <h1 class="font-secondary display-4">Chú rể & Cô dâu</h1>
-                <i class="far fa-heart text-dark"></i>
+    <div
+      class="modal fade"
+      id="qrModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="qr-card">
+                <div class="qr-title font-secondary pr-3" style="font-size: 35px;">Mọi yêu thương xin gửi về</div>
+                <img src="fix/qr_mtl.jpg" alt="QR Code">
             </div>
-            <div class="row m-0 mb-4 mb-md-0 pb-2 pb-md-0">
-                <div class="col-md-6 p-0 text-center text-md-right">
-                    <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
-                        <h3 class="mb-3">Chú rể</h3>
-                        <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-male text-primary pr-3"></i>Lương Tiến Mạnh</h3>
-                        <div class="position-relative">
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.facebook.com/manh.lt1901" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/luong-manh-502070213" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.instagram.com/manh_l.t/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 p-0" style="min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="fix/about_mtl.jpg" style="object-fit: cover;">
-                </div>
-            </div>
-            <div class="row m-0">
-                <div class="col-md-6 p-0" style="min-height: 400px;">
-                    <img class="position-absolute w-100 h-100" src="fix/about_taouu.jpg" style="object-fit: cover;">
-                </div>
-                <div class="col-md-6 p-0 text-center text-md-left">
-                    <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
-                        <h3 class="mb-3">Cô dâu</h3>
-                        <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-female text-primary pr-3"></i>Đỗ Thu Chính</h3>
-                        <div class="position-relative">
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.facebook.com/greenvase137" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/do-thu-chinh-0aa0a6200" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/taouu_sleepy/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+    </div>
+
+
+    <div
+      class="modal fade"
+      id="qrModal-1"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="qr-card">
+                <div class="qr-title font-secondary pr-3" style="font-size: 35px;">Mọi yêu thương xin gửi về</div>
+                <img src="fix/qr_taouu.jpg" alt="QR Code 1">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid py-5" id="about">
+      <div class="container py-5">
+        <div class="section-title position-relative text-center">
+          <h6
+            class="text-uppercase text-primary mb-3"
+            style="letter-spacing: 3px"
+          >
+            About
+          </h6>
+          <h1 class="font-secondary display-4">Chú rể & Cô dâu</h1>
+          <i class="far fa-heart text-dark"></i>
+        </div>
+        <div class="row m-0 mb-4 mb-md-0 pb-2 pb-md-0">
+          <div class="col-md-6 p-0 text-center text-md-right">
+            <div
+              class="h-100 d-flex flex-column justify-content-center bg-secondary p-5"
+            >
+              <h3 class="mb-3">Chú rể</h3>
+              <h3 class="font-secondary font-weight-normal text-muted mb-3">
+                <i class="fa fa-male text-primary pr-3"></i>Lương Tiến Mạnh
+              </h3>
+              <div class="position-relative">
+                <a
+                  class="btn btn-outline-primary btn-square mr-1"
+                  href="https://www.facebook.com/manh.lt1901"
+                  target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-square mr-1"
+                  data-toggle="modal"
+                  data-target="#qrModal"
+                >
+                  <i class="fas fa-qrcode"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 p-0" style="min-height: 400px">
+            <img
+              class="position-absolute w-100 h-100"
+              src="fix/about_mtl.jpg"
+              style="object-fit: cover"
+            />
+          </div>
+        </div>
+        <div class="row m-0">
+          <div class="col-md-6 p-0" style="min-height: 400px">
+            <img
+              class="position-absolute w-100 h-100"
+              src="fix/about_taouu.jpg"
+              style="object-fit: cover"
+            />
+          </div>
+          <div class="col-md-6 p-0 text-center text-md-left">
+            <div
+              class="h-100 d-flex flex-column justify-content-center bg-secondary p-5"
+            >
+              <h3 class="mb-3">Cô dâu</h3>
+              <h3 class="font-secondary font-weight-normal text-muted mb-3">
+                <i class="fa fa-female text-primary pr-3"></i>Đỗ Thu Chính
+              </h3>
+              <div class="position-relative">
+                <a
+                  class="btn btn-outline-primary btn-square mr-1"
+                  href="https://www.facebook.com/greenvase137"
+                  target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-square mr-1"
+                  data-toggle="modal"
+                  data-target="#qrModal-1"
+                >
+                  <i class="fas fa-qrcode"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- About End -->
 
-    <!-- Gallery Start -->
-    <div class="container-fluid bg-gallery" id="gallery" style="padding: 120px 0; margin: 90px 0;">
-        <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Gallery</h6>
-            <h1 class="font-secondary display-4 text-white">Our Photo Gallery</h1>
-            <i class="far fa-heart text-white"></i>
-        </div>
-        <div class="owl-carousel gallery-carousel">
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03395.jpg" alt="">
-                <a href="fix/DSC03395.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04458.jpg" alt="">
-                <a href="fix/DSC04404.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div> 
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03681.jpg" alt="">
-                <a href="fix/DSC03681.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04113.jpg" alt="">
-                <a href="fix/DSC04113.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03413.jpg" alt="">
-                <a href="fix/DSC03413.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03718.jpg" alt="">
-                <a href="fix/DSC03718.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04164.jpg" alt="">
-                <a href="fix/DSC04164.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03423.jpg" alt="">
-                <a href="fix/DSC03423.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03735.jpg" alt="">
-                <a href="fix/DSC03735.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04222.jpg" alt="">
-                <a href="fix/DSC04222.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03511.jpg" alt="">
-                <a href="fix/DSC03511.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03761.jpg" alt="">
-                <a href="fix/DSC03761.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04263.jpg" alt="">
-                <a href="fix/DSC04263.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03538.jpg" alt="">
-                <a href="fix/DSC03538.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03817.jpg" alt="">
-                <a href="fix/DSC03817.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04267.jpg" alt="">
-                <a href="fix/DSC04267.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03546.jpg" alt="">
-                <a href="fix/DSC03546.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03858.jpg" alt="">
-                <a href="fix/DSC03858.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04404.jpg" alt="">
-                <a href="fix/DSC04404.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03586.jpg" alt="">
-                <a href="fix/DSC03586.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03909.jpg" alt="">
-                <a href="fix/DSC03909.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04411.jpg" alt="">
-                <a href="fix/DSC04404.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03923.jpg" alt="">
-                <a href="fix/DSC03923.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04446.jpg" alt="">
-                <a href="fix/DSC04404.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            
-        </div>
-    </div>
-    <!-- Gallery End -->
-
     <!-- Story Start -->
     <div class="container-fluid py-5" id="story">
-        <div class="container pt-5 pb-3">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Story</h6>
-                <h1 class="font-secondary display-4">Our Love Story</h1>
-                <i class="far fa-heart text-dark"></i>
-            </div>
-            <div class="container timeline position-relative p-0">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-right">
-                        <img class="img-fluid-custom mr-md-3" src="fix/firstmeet.jpg" alt="">
-                    </div>
-                    <div class="col-md-6 text-center text-md-left">
-                        <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
-                            <h4 class="mb-2">Lần gặp đầu tiên</h4>
-                            <p class="text-uppercase mb-2">16 Jan 2021</p>
-                            <p class="m-0">Sau một thời gian dài nói chuyện, chúng mình quyết định gặp nhau lần đầu tiên.</p>
-                            <br>
-                            <p class="m-0">P/S: Ảnh từ phóng viên thường trú tại hiện trường HUYMQ</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-right">
-                        <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3">
-                            <h4 class="mb-2">Ngày hẹn hò đầu tiên</h4>
-                            <p class="text-uppercase mb-2">21 Apr 2021</p>
-                            <p class="m-0">Kết thúc buổi xem phim bằng một lời tỏ tình, chúng mình đã trở thành một đôi như thế 🥳🥳🥳</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center text-md-left">
-                        <img class="img-fluid-custom ml-md-3" src="fix/firstdate.jpg" alt="">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-right">
-                        <img class="img-fluid-custom mr-md-3" src="fix/cauhon.jpg" alt="">
-                    </div>
-                    <div class="col-md-6 text-center text-md-left">
-                        <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
-                            <h4 class="mb-2">Lễ cầu hôn</h4>
-                            <p class="text-uppercase mb-2">21 APR 2024</p>
-                            <p class="m-0">Chúng mình đã kỉ niệm 3 năm iu nhau bằng một cách vô cùng đặc biệt và ...</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-right">
-                        <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3">
-                            <h4 class="mb-2">Lễ thành hôn</h4>
-                            <p class="text-uppercase mb-2">02 Nov 2024</p>
-                            <p class="m-0">Đừng quên tới chung vui cùng chúng mình nha!</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center text-md-left">
-                        <div class="container-countdown">
-                            <div id="countdown">
-                                <div class="time-box">
-                                    <div id="days"></div>
-                                    <span>Ngày</span>
-                                </div>
-                                <div class="time-box">
-                                    <div id="hours"></div>
-                                    <span>Giờ</span>
-                                </div>
-                                <div class="time-box">
-                                    <div id="minutes"></div>
-                                    <span>Phút</span>
-                                </div>
-                                <div class="time-box">
-                                    <div id="seconds"></div>
-                                    <span>Giây</span>
-                                </div>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container pt-5 pb-3">
+        <div class="section-title position-relative text-center">
+          <h6
+            class="text-uppercase text-primary mb-3"
+            style="letter-spacing: 3px"
+          >
+            Story
+          </h6>
+          <h1 class="font-secondary display-4">Our Love Story</h1>
+          <i class="far fa-heart text-dark"></i>
         </div>
+        <div class="container timeline position-relative p-0">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-right">
+              <img
+                class="img-fluid-custom mr-md-3"
+                src="fix/firstmeet.jpg"
+                alt=""
+              />
+            </div>
+            <div class="col-md-6 text-center text-md-left">
+              <div
+                class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3"
+              >
+                <h4 class="mb-2">Lần gặp đầu tiên</h4>
+                <p class="text-uppercase font-weight-bold mb-2">16 Jan 2021</p>
+                <p class="m-0">
+                  Sau một thời gian dài nói chuyện, chúng mình quyết định gặp
+                  nhau lần đầu tiên.
+                </p>
+                <br />
+                <p class="m-0">
+                  P/S: Ảnh từ phóng viên thường trú tại hiện trường HUYMQ
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 text-center text-md-right">
+              <div
+                class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3"
+              >
+                <h4 class="mb-2">Ngày hẹn hò đầu tiên</h4>
+                <p class="text-uppercase font-weight-bold mb-2">21 Apr 2021</p>
+                <p class="m-0">
+                  Kết thúc buổi xem phim bằng một lời tỏ tình, chúng mình đã trở
+                  thành một đôi như thế 🥳🥳🥳
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 text-center text-md-left">
+              <img
+                class="img-fluid-custom ml-md-3"
+                src="fix/firstdate.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 text-center text-md-right">
+              <img
+                class="img-fluid-custom mr-md-3"
+                src="fix/cauhon.jpg"
+                alt=""
+              />
+            </div>
+            <div class="col-md-6 text-center text-md-left">
+              <div
+                class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3"
+              >
+                <h4 class="mb-2">Lễ cầu hôn</h4>
+                <p class="text-uppercase font-weight-bold mb-2">21 APR 2024</p>
+                <p class="m-0">
+                  Chúng mình đã kỉ niệm 3 năm iu nhau bằng một cách vô cùng đặc
+                  biệt và ...
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 text-center text-md-right">
+              <div
+                class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3"
+              >
+                <h4 class="mb-2">Lễ thành hôn</h4>
+                <p class="text-uppercase font-weight-bold mb-2">02 Nov 2024</p>
+                <p class="m-0">Đừng quên tới chung vui cùng chúng mình nha!</p>
+              </div>
+            </div>
+            <div class="col-md-6 text-center text-md-left">
+              <div class="container-countdown">
+                <div id="countdown">
+                  <div class="time-box">
+                    <div id="days"></div>
+                    <span>Ngày</span>
+                  </div>
+                  <div class="time-box">
+                    <div id="hours"></div>
+                    <span>Giờ</span>
+                  </div>
+                  <div class="time-box">
+                    <div id="minutes"></div>
+                    <span>Phút</span>
+                  </div>
+                  <div class="time-box">
+                    <div id="seconds"></div>
+                    <span>Giây</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Story End -->
-     
+
     <!-- Event Start -->
     <div class="container-fluid py-5" id="event">
-        <div class="container py-5">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Event</h6>
-                <h1 class="font-secondary display-4">Our Wedding Event</h1>
-                <i class="far fa-heart text-dark"></i>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center">
-                    <h5 class="font-weight-bold text-muted mb-3 pb-3">Trân trọng thân mời bạn đến dự bữa tiệc thân mật mừng lễ thành hôn của chúng tôi</h5>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 border-right border-primary">
-                    <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
-                        <h4 class="mb-3">Nhà gái</h4>
-                        <b class="mb-2" style="color: blue;">Tại hội trường nhà công vụ Z195, Km12, xã Hợp Châu, huyện Tam Đảo, tỉnh Vĩnh Phúc</b>
-                        <p class="mb-0" style="color: rgba(0, 0, 255, 0.914);">Vào lúc 10h00, ngày 2/11/2024</p>
-                        <br>
-                        <p class="mb-0" >Quét QR để nhận chỉ đường nha ❤️</p>
-                        <img class="img-qr mb-4" src="fix/QR_nhagai.jpg" alt="">
-
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="text-center text-md-left ml-md-3">
-                        <h4 class="mb-3">Nhà trai</h4>
-                        <b class="mb-2" style="color: blue;">Tại nhà hàng Hữu hạnh, Số 1A, đường Hải Triều, phường Quán Toan, quận Hồng Bàng, T.P Hải Phòng</b>
-                        <p class="mb-0" style="color: rgba(0, 0, 255, 0.914);">Vào lúc 17h00, ngày 2/11/2024</p>
-                        <br>
-                        <p class="mb-0" >Quét QR để nhận chỉ đường nha ❤️</p>
-                        <img class="img-qr mb-4" src="fix/QR_nhatrai.jpg" alt="">
-                    </div>
-                </div>
-            </div>
+      <div class="container py-5">
+        <div class="section-title position-relative text-center">
+          <h6
+            class="text-uppercase text-primary mb-3"
+            style="letter-spacing: 3px"
+          >
+            Event
+          </h6>
+          <h1 class="font-secondary display-4">Our Wedding Event</h1>
+          <i class="far fa-heart text-dark"></i>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center">
+            <h5 class="font-weight-bold text-muted mb-3 pb-3">
+              Trân trọng thân mời bạn đến dự bữa tiệc thân mật mừng lễ thành hôn
+              của chúng tôi
+            </h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 border-right border-primary">
+            <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
+              <h4 class="mb-3">Nhà gái</h4>
+              <b class="mb-2" style="color: blue"
+                >Tại hội trường nhà công vụ Z195, Km12, xã Hợp Châu, huyện Tam
+                Đảo, tỉnh Vĩnh Phúc</b
+              >
+              <p class="mb-0" style="color: rgba(0, 0, 255, 0.914)">
+                Vào lúc 10h00, ngày 2/11/2024
+              </p>
+              <br />
+              <p class="mb-0">Quét QR để nhận chỉ đường nha ❤️</p>
+              <img class="img-qr mb-4" src="fix/QR_nhagai.jpg" alt="" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-center text-md-left ml-md-3">
+              <h4 class="mb-3">Nhà trai</h4>
+              <b class="mb-2" style="color: blue"
+                >Tại nhà hàng Hữu hạnh, Số 1A, đường Hải Triều, phường Quán
+                Toan, quận Hồng Bàng, T.P Hải Phòng</b
+              >
+              <p class="mb-0" style="color: rgba(0, 0, 255, 0.914)">
+                Vào lúc 17h00, ngày 2/11/2024
+              </p>
+              <br />
+              <p class="mb-0">Quét QR để nhận chỉ đường nha ❤️</p>
+              <img class="img-qr mb-4" src="fix/QR_nhatrai.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Event End -->
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-white py-5" id="contact" style="margin-top: 90px;">
-        <div class="container text-center py-5">
-            <div class="section-title position-relative text-center">
-                <h1 class="font-secondary display-3 text-white">Thank You</h1>
-                <i class="far fa-heart text-white"></i>
-            </div>
-            <div class="d-flex justify-content-center mb-4">
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/manh.lt1901"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.linkedin.com/in/luong-manh-502070213"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <div class="d-flex justify-content-center py-2">
-                <p class="text-white" href="#">manhqthp1999@gmail.com</p>
-                <span class="px-3">|</span>
-                <p class="text-white" href="#">+84947197655</p>
-            </div>
-            <p class="m-0">&copy; <a class="text-primary" href="#">Copyright: </a>. Designed by <a class="text-primary" href="https://github.com/manhluong1999">manhluong1999</a>
-            </p>
+    <!-- Gallery Start -->
+    <div
+      class="container-fluid bg-gallery"
+      id="gallery"
+      style="padding: 120px 0; margin: 90px 0"
+    >
+      <div
+        class="section-title position-relative text-center"
+        style="margin-bottom: 120px"
+      >
+        <h6
+          class="text-uppercase text-primary mb-3"
+          style="letter-spacing: 3px"
+        >
+          Gallery
+        </h6>
+        <h1 class="font-secondary display-4 text-white">Our Photo Gallery</h1>
+        <i class="far fa-heart text-white"></i>
+      </div>
+      <div class="owl-carousel gallery-carousel">
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03395.jpg" alt="" />
+          <a href="fix/DSC03395.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
         </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04458.jpg" alt="" />
+          <a href="fix/DSC04404.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03681.jpg" alt="" />
+          <a href="fix/DSC03681.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04113.jpg" alt="" />
+          <a href="fix/DSC04113.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03413.jpg" alt="" />
+          <a href="fix/DSC03413.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03718.jpg" alt="" />
+          <a href="fix/DSC03718.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04164.jpg" alt="" />
+          <a href="fix/DSC04164.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03423.jpg" alt="" />
+          <a href="fix/DSC03423.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03735.jpg" alt="" />
+          <a href="fix/DSC03735.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04222.jpg" alt="" />
+          <a href="fix/DSC04222.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03511.jpg" alt="" />
+          <a href="fix/DSC03511.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03761.jpg" alt="" />
+          <a href="fix/DSC03761.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04263.jpg" alt="" />
+          <a href="fix/DSC04263.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03538.jpg" alt="" />
+          <a href="fix/DSC03538.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03817.jpg" alt="" />
+          <a href="fix/DSC03817.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04267.jpg" alt="" />
+          <a href="fix/DSC04267.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03546.jpg" alt="" />
+          <a href="fix/DSC03546.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03858.jpg" alt="" />
+          <a href="fix/DSC03858.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04404.jpg" alt="" />
+          <a href="fix/DSC04404.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03586.jpg" alt="" />
+          <a href="fix/DSC03586.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03909.jpg" alt="" />
+          <a href="fix/DSC03909.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04411.jpg" alt="" />
+          <a href="fix/DSC04404.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC03923.jpg" alt="" />
+          <a href="fix/DSC03923.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+        <div class="gallery-item">
+          <img class="img-fluid w-100" src="fix/DSC04446.jpg" alt="" />
+          <a href="fix/DSC04404.jpg" data-lightbox="gallery">
+            <i class="fa fa-2x fa-plus text-white"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Gallery End -->
+
+    <!-- Footer Start -->
+    <div
+      class="container-fluid bg-dark text-white py-5"
+      id="contact"
+      style="margin-top: 90px"
+    >
+      <div class="container text-center py-5">
+        <div class="section-title position-relative text-center">
+          <h1 class="font-secondary display-3 text-white">Thank You</h1>
+          <i class="far fa-heart text-white"></i>
+        </div>
+        <div class="d-flex justify-content-center mb-4">
+          <a
+            class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+            href="https://www.facebook.com/manh.lt1901"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+            href="https://www.linkedin.com/in/luong-manh-502070213"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+        <div class="d-flex justify-content-center py-2">
+          <p class="text-white" href="#">manhqthp1999@gmail.com</p>
+          <span class="px-3">|</span>
+          <p class="text-white" href="#">+84947197655</p>
+        </div>
+        <p class="m-0">
+          &copy; <a class="text-primary" href="#">Copyright: </a>. Designed by
+          <a class="text-primary" href="https://github.com/manhluong1999"
+            >manhluong1999</a
+          >
+        </p>
+      </div>
     </div>
     <!-- Footer End -->
-
 
     <!-- Scroll to Bottom -->
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
+    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"
+      ><i class="fa fa-angle-double-up"></i
+    ></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -533,6 +817,5 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
