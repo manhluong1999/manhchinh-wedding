@@ -529,6 +529,15 @@ mark,
   max-width: 100%;
   height: auto;
 }
+.img-fluid-custom{
+  max-width: 97%;
+  height: auto;
+}
+
+.img-qr {
+  max-width: 60%;
+  height: auto;
+}
 
 .img-thumbnail {
   padding: 0.25rem;
@@ -7384,6 +7393,10 @@ button.bg-dark:focus {
   margin-bottom: 0.5rem !important;
 }
 
+.mb-x{
+  margin-bottom: 1rem !important;
+}
+
 .ml-2,
 .mx-2 {
   margin-left: 0.5rem !important;
@@ -9761,4 +9774,34 @@ a.text-dark:hover, a.text-dark:focus {
   #event .border-right {
     border-right: none !important;
   }
+}
+
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 2.5em;
+  margin-left: 25px;
+}
+
+.container-countdown {
+  text-align: center;
+}
+
+.time-box {
+  background-color: #ff6347;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 120px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.time-box span {
+  display: block;
+  font-size: 0.6em;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }

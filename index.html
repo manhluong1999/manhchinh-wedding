@@ -27,6 +27,41 @@
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <script>
+        // Thiết lập ngày đích cần đếm ngược
+        var countDownDate = new Date("Nov 02, 2024 08:00:00").getTime();
+
+        // Cập nhật thời gian đếm ngược mỗi giây
+        var countdownFunction = setInterval(function() {
+
+            // Lấy ngày giờ hiện tại
+            var now = new Date().getTime();
+
+            // Tính khoảng cách giữa bây giờ và ngày đích
+            var distance = countDownDate - now;
+
+            // Tính toán thời gian cho ngày, giờ, phút và giây
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Hiển thị kết quả trong thẻ <div> với id="countdown"
+            // document.getElementById("countdown").innerHTML = days + " ngày " + hours + " giờ " 
+            // + minutes + " phút " + seconds + " giây ";
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            // Nếu đếm ngược xong, dừng lại và hiển thị thông báo
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "Đã đến ngày!";
+            }
+        }, 1000);
+    </script>
+
     <!-- Navbar Start -->
     <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand d-block d-lg-none">
@@ -127,19 +162,18 @@
         <div class="container py-5">
             <div class="section-title position-relative text-center">
                 <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">About</h6>
-                <h1 class="font-secondary display-4">Groom & Bride</h1>
+                <h1 class="font-secondary display-4">Chú rể & Cô dâu</h1>
                 <i class="far fa-heart text-dark"></i>
             </div>
             <div class="row m-0 mb-4 mb-md-0 pb-2 pb-md-0">
                 <div class="col-md-6 p-0 text-center text-md-right">
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
-                        <h3 class="mb-3">The Groom</h3>
-                        <p>Hello xin chào, mình là chú rể đây.</p>
+                        <h3 class="mb-3">Chú rể</h3>
                         <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-male text-primary pr-3"></i>Lương Tiến Mạnh</h3>
                         <div class="position-relative">
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.facebook.com/manh.lt1901"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/luong-manh-502070213"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.facebook.com/manh.lt1901" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/luong-manh-502070213" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.instagram.com/manh_l.t/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -153,13 +187,12 @@
                 </div>
                 <div class="col-md-6 p-0 text-center text-md-left">
                     <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-5">
-                        <h3 class="mb-3">The Bride</h3>
-                        <p>Hello xin chào mình là cô dâu đây</p>
+                        <h3 class="mb-3">Cô dâu</h3>
                         <h3 class="font-secondary font-weight-normal text-muted mb-3"><i class="fa fa-female text-primary pr-3"></i>Đỗ Thu Chính</h3>
                         <div class="position-relative">
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.facebook.com/greenvase137"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/do-thu-chinh-0aa0a6200"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.facebook.com/greenvase137" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-1" href="https://www.linkedin.com/in/do-thu-chinh-0aa0a6200" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="https://www.instagram.com/taouu_sleepy/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -180,50 +213,71 @@
             <div class="container timeline position-relative p-0">
                 <div class="row">
                     <div class="col-md-6 text-center text-md-right">
-                        <img class="img-fluid mr-md-3" src="img/story-1.jpg" alt="">
+                        <img class="img-fluid-custom mr-md-3" src="fix/firstmeet.jpg" alt="">
                     </div>
                     <div class="col-md-6 text-center text-md-left">
                         <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
-                            <h4 class="mb-2">First Meet</h4>
+                            <h4 class="mb-2">Lần gặp đầu tiên</h4>
                             <p class="text-uppercase mb-2">16 Jan 2021</p>
-                            <p class="m-0">Gặp nhau tại quán lẩu Ếch Phong Ớ.</p>
+                            <p class="m-0">Sau một thời gian dài nói chuyện, chúng mình quyết định gặp nhau lần đầu tiên.</p>
+                            <br>
+                            <p class="m-0">P/S: Ảnh từ phóng viên thường trú tại hiện trường HUYMQ</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 text-center text-md-right">
                         <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3">
-                            <h4 class="mb-2">First Date</h4>
-                            <p class="text-uppercase mb-2">01 Jan 2050</p>
-                            <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.</p>
+                            <h4 class="mb-2">Ngày hẹn hò đầu tiên</h4>
+                            <p class="text-uppercase mb-2">21 Apr 2021</p>
+                            <p class="m-0">Kết thúc buổi xem phim bằng một lời tỏ tình, chúng mình đã trở thành một đôi như thế 🥳🥳🥳</p>
                         </div>
                     </div>
                     <div class="col-md-6 text-center text-md-left">
-                        <img class="img-fluid ml-md-3" src="img/story-2.jpg" alt="">
+                        <img class="img-fluid-custom ml-md-3" src="fix/firstdate.jpg" alt="">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 text-center text-md-right">
-                        <img class="img-fluid mr-md-3" src="img/story-3.jpg" alt="">
+                        <img class="img-fluid-custom mr-md-3" src="fix/cauhon.jpg" alt="">
                     </div>
                     <div class="col-md-6 text-center text-md-left">
                         <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 ml-md-3">
-                            <h4 class="mb-2">Proposal</h4>
-                            <p class="text-uppercase mb-2">01 Jan 2050</p>
-                            <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.</p>
+                            <h4 class="mb-2">Lễ cầu hôn</h4>
+                            <p class="text-uppercase mb-2">21 APR 2024</p>
+                            <p class="m-0">Chúng mình đã kỉ niệm 3 năm iu nhau bằng một cách vô cùng đặc biệt và ...</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 text-center text-md-right">
                         <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4 mr-md-3">
-                            <h4 class="mb-2">Enagagement</h4>
-                            <p class="text-uppercase mb-2">01 Jan 2050</p>
-                            <p class="m-0">Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos tempor rebum, labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.</p>
+                            <h4 class="mb-2">Lễ thành hôn</h4>
+                            <p class="text-uppercase mb-2">02 Nov 2024</p>
+                            <p class="m-0">Đừng quên tới chung vui cùng chúng mình nha!</p>
                         </div>
                     </div>
                     <div class="col-md-6 text-center text-md-left">
-                        <img class="img-fluid ml-md-3" src="img/story-4.jpg" alt="">
+                        <div class="container-countdown">
+                            <div id="countdown">
+                                <div class="time-box">
+                                    <div id="days"></div>
+                                    <span>Ngày</span>
+                                </div>
+                                <div class="time-box">
+                                    <div id="hours"></div>
+                                    <span>Giờ</span>
+                                </div>
+                                <div class="time-box">
+                                    <div id="minutes"></div>
+                                    <span>Phút</span>
+                                </div>
+                                <div class="time-box">
+                                    <div id="seconds"></div>
+                                    <span>Giây</span>
+                                </div>
+                            </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -247,41 +301,11 @@
                 </a>
             </div>
             <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03413.jpg" alt="">
-                <a href="fix/DSC03413.jpg" data-lightbox="gallery">
+                <img class="img-fluid w-100" src="fix/DSC04458.jpg" alt="">
+                <a href="fix/DSC04404.jpg" data-lightbox="gallery">
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03423.jpg" alt="">
-                <a href="fix/DSC03423.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03511.jpg" alt="">
-                <a href="fix/DSC03511.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03538.jpg" alt="">
-                <a href="fix/DSC03538.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03546.jpg" alt="">
-                <a href="fix/DSC03546.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03586.jpg" alt="">
-                <a href="fix/DSC03586.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
+            </div> 
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="fix/DSC03681.jpg" alt="">
                 <a href="fix/DSC03681.jpg" data-lightbox="gallery">
@@ -289,8 +313,35 @@
                 </a>
             </div>
             <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC04113.jpg" alt="">
+                <a href="fix/DSC04113.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03413.jpg" alt="">
+                <a href="fix/DSC03413.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
                 <img class="img-fluid w-100" src="fix/DSC03718.jpg" alt="">
                 <a href="fix/DSC03718.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC04164.jpg" alt="">
+                <a href="fix/DSC04164.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03423.jpg" alt="">
+                <a href="fix/DSC03423.jpg" data-lightbox="gallery">
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
@@ -302,8 +353,35 @@
             </div>
 
             <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC04222.jpg" alt="">
+                <a href="fix/DSC04222.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03511.jpg" alt="">
+                <a href="fix/DSC03511.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
                 <img class="img-fluid w-100" src="fix/DSC03761.jpg" alt="">
                 <a href="fix/DSC03761.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC04263.jpg" alt="">
+                <a href="fix/DSC04263.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03538.jpg" alt="">
+                <a href="fix/DSC03538.jpg" data-lightbox="gallery">
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
@@ -314,50 +392,21 @@
                 </a>
             </div>
             <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03858.jpg" alt="">
-                <a href="fix/DSC03858.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03909.jpg" alt="">
-                <a href="fix/DSC03909.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC03923.jpg" alt="">
-                <a href="fix/DSC03923.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04113.jpg" alt="">
-                <a href="fix/DSC04113.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04164.jpg" alt="">
-                <a href="fix/DSC04164.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04222.jpg" alt="">
-                <a href="fix/DSC04222.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04263.jpg" alt="">
-                <a href="fix/DSC04263.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
                 <img class="img-fluid w-100" src="fix/DSC04267.jpg" alt="">
                 <a href="fix/DSC04267.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03546.jpg" alt="">
+                <a href="fix/DSC03546.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03858.jpg" alt="">
+                <a href="fix/DSC03858.jpg" data-lightbox="gallery">
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
@@ -367,9 +416,30 @@
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03586.jpg" alt="">
+                <a href="fix/DSC03586.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+            
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03909.jpg" alt="">
+                <a href="fix/DSC03909.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
             <div class="gallery-item">
                 <img class="img-fluid w-100" src="fix/DSC04411.jpg" alt="">
                 <a href="fix/DSC04404.jpg" data-lightbox="gallery">
+                    <i class="fa fa-2x fa-plus text-white"></i>
+                </a>
+            </div>
+
+            <div class="gallery-item">
+                <img class="img-fluid w-100" src="fix/DSC03923.jpg" alt="">
+                <a href="fix/DSC03923.jpg" data-lightbox="gallery">
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
@@ -379,12 +449,7 @@
                     <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
             </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="fix/DSC04458.jpg" alt="">
-                <a href="fix/DSC04404.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
+            
         </div>
     </div>
     <!-- Gallery End -->
@@ -400,24 +465,29 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center">
-                    <h5 class="font-weight-normal text-muted mb-3 pb-3">Trân trọng thân mời bạn đến dự bữa tiệc thân mật mừng lễ thành hôn của chúng tôi</h5>
+                    <h5 class="font-weight-bold text-muted mb-3 pb-3">Trân trọng thân mời bạn đến dự bữa tiệc thân mật mừng lễ thành hôn của chúng tôi</h5>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 border-right border-primary">
                     <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
-                        <img class="img-fluid mb-4" src="fix/QR_nhagai.jpg" alt="">
                         <h4 class="mb-3">Nhà gái</h4>
-                        <p class="mb-2">Khu tập thể nhà máy z195, xã Hợp Châu, huyện Tam Đảo, Tỉnh Vĩnh Phúc</p>
-                        <p class="mb-0">Vào lúc 10h00, ngày 2/11/2024</p>
+                        <b class="mb-2" style="color: blue;">Tại hội trường nhà công vụ Z195, Km12, xã Hợp Châu, huyện Tam Đảo, tỉnh Vĩnh Phúc</b>
+                        <p class="mb-0" style="color: rgba(0, 0, 255, 0.914);">Vào lúc 10h00, ngày 2/11/2024</p>
+                        <br>
+                        <p class="mb-0" >Quét QR để nhận chỉ đường nha ❤️</p>
+                        <img class="img-qr mb-4" src="fix/QR_nhagai.jpg" alt="">
+
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-center text-md-left ml-md-3">
-                        <img class="img-fluid mb-4" src="fix/QR_nhatrai.jpg" alt="">
                         <h4 class="mb-3">Nhà trai</h4>
-                        <p class="mb-2">Tại Nhà hàng Hữu hạnh, Số 1A, đường Hải Triều, phường Quán Toan, quận Hồng Bàng, T.P Hải Phòng</p>
-                        <p class="mb-0">Vào lúc 17h00, ngày 2/11/2024</p>
+                        <b class="mb-2" style="color: blue;">Tại nhà hàng Hữu hạnh, Số 1A, đường Hải Triều, phường Quán Toan, quận Hồng Bàng, T.P Hải Phòng</b>
+                        <p class="mb-0" style="color: rgba(0, 0, 255, 0.914);">Vào lúc 17h00, ngày 2/11/2024</p>
+                        <br>
+                        <p class="mb-0" >Quét QR để nhận chỉ đường nha ❤️</p>
+                        <img class="img-qr mb-4" src="fix/QR_nhatrai.jpg" alt="">
                     </div>
                 </div>
             </div>
