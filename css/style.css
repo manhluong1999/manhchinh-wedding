@@ -9783,6 +9783,13 @@ a.text-dark:hover, a.text-dark:focus {
   justify-content: center;
   gap: 12px;
   font-size: 2.5em;
+  margin-left: 5%;
+}
+
+@media (max-width: 767.98px) {
+  #countdown {
+    font-size: 1em;
+  }
 }
 
 .container-countdown {
@@ -9791,10 +9798,10 @@ a.text-dark:hover, a.text-dark:focus {
 
 .time-box {
   background-color: #ff6347;
-  color: white;
+  color: white; 
   border-radius: 10px;
   padding: 20px;
-  min-width: 100px;
+  min-width: 24%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -9802,17 +9809,18 @@ a.text-dark:hover, a.text-dark:focus {
   display: block;
   font-size: 0.5em;
   margin-top: 10px;
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .qr-card {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 400px;
+  width: 95%;
   transition: transform 0.3s;
 }
 
@@ -9821,8 +9829,8 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .qr-card img {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
   border: 2px solid #333;
 }
