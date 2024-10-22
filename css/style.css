@@ -9781,9 +9781,8 @@ a.text-dark:hover, a.text-dark:focus {
 #countdown {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 12px;
   font-size: 2.5em;
-  margin-left: 25px;
 }
 
 .container-countdown {
@@ -9795,13 +9794,13 @@ a.text-dark:hover, a.text-dark:focus {
   color: white;
   border-radius: 10px;
   padding: 20px;
-  min-width: 120px;
+  min-width: 100px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .time-box span {
   display: block;
-  font-size: 0.6em;
+  font-size: 0.5em;
   margin-top: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
